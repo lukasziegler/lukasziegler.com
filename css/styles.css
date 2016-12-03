@@ -30,12 +30,16 @@ a:active {
     text-decoration: none;
     font-weight: 700;
 }
+
+
 /*
 .button {
     background-color: transparent;
     color: #000;
 }
 */
+
+
 /* HEADLINES */
 
 h2 {
@@ -72,6 +76,8 @@ h4 {
     font-weight: 200;
     font-size: 1.5em;
 }
+
+
 /* Header */
 
 h1.site-title a {
@@ -117,6 +123,7 @@ h1.site-title a {
 #header-image {
     background-position: center;
     background-size: cover;
+    background-color: #dfb95d;
     width: 100%;
     height: 100%;
     position: relative;
@@ -161,6 +168,8 @@ h1.site-title a {
     text-transform: uppercase;
     color: #fff;
 }
+
+
 /* Body */
 
 body.home div#top {
@@ -227,8 +236,6 @@ body.home div#top {
 
 .row-footer span {
     width: 100%;
-    /* border-top: 1px solid #fff; */
-    
     line-height: 3em;
     text-transform: uppercase;
 }
@@ -243,22 +250,28 @@ body.home div#top {
     font-size: 2.3em;
     font-weight: 100;
 }
+
+
 /* FOOTER */
 
 footer a,
 footer a:visited,
 footer a:hover {
-    color: #a8a8a8;
+    color: #fff;
     font-size: 0.9em;
     line-height: 2em;
 }
 
 footer a:hover {
-    color: #fff;
+    color: #a8a8a8;
 }
 
 footer div {}
+
+
 /* ADJUSTMENTS for SMALLER SCREENS */
+
+
 /* > MEDIUM SCREENS */
 
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
@@ -272,6 +285,8 @@ footer div {}
         overflow: hidden;
     } */
 }
+
+
 /* > SMALL SCREENS */
 
 @media only screen and (max-width: 40em) {
