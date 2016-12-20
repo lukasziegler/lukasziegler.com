@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/lukasziegler/lukasziegler.github.io",
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-open": "^2.0.0",
     "stylus": "^0.54.5"
   }
 }
