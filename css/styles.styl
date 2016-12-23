@@ -1,3 +1,5 @@
+@import "rupture"
+
 /* General */
 content-container()
   max-width 1200px
@@ -32,7 +34,7 @@ a:active
 
 /* HEADLINES */
 h2
-  font-size: 3.0em
+  font-size: 2.0em
   font-weight: 300
   color: #fff
   text-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px
@@ -104,13 +106,19 @@ h4
     color: #fff
     text-align: center
     text-transform: uppercase
-    font-size: 400%
     font-weight: 500
     border: 7px solid #fff
     width: 95%
-    margin: 25vh auto
     padding: 0 15px
     max-width 1000px
+    font-size: 2.5em
+    margin: 25vh auto
+    +above(40rem)
+      font-size: 3.7em
+      margin: 20vh auto
+    +above(64rem)
+      font-size: 4rem
+      margin: 25vh auto
 
 .main-navigation ul
   list-style: none
@@ -204,16 +212,3 @@ footer a:hover
 
 footer a:hover
   color: #a8a8a8
-
-/* ADJUSTMENTS for SMALLER SCREENS */
-/* > MEDIUM SCREENS */
-@media screen and (min-width: 40.063em) and (max-width: 64em)
-  .header__slogan
-    font-size: 3em
-    margin: 14% auto
-
-/* > SMALL SCREENS */
-@media screen and (max-width: 40em)
-  .header__slogan
-    font-size: 1.8em
-    margin: 10% auto

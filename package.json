@@ -1,11 +1,8 @@
 {
   "name": "lukasziegler.com",
-  "version": "0.0.2",
-  "description": "git repo for website lukasziegler.com",
-  "main": "index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "0.0.3",
+  "description": "repo for website lukasziegler.com",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/lukasziegler/lukasziegler.github.io.git"
