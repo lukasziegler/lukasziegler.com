@@ -1,6 +1,6 @@
 {
   "name": "lukasziegler.com",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "git repo for website lukasziegler.com",
   "main": "index.html",
   "scripts": {
@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/lukasziegler/lukasziegler.github.io",
   "devDependencies": {
+    "browser-sync": "^2.18.5",
     "gulp": "^3.9.1",
-    "gulp-open": "^2.0.0",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-stylus": "^2.6.0",
+    "rupture": "^0.6.2",
     "stylus": "^0.54.5"
   }
 }
