@@ -12,8 +12,8 @@ var path = {
   html: '*.html',
   js: 'js/**/*.js',
   styles: 'styles/**/*.styl',
-  output: 'www',
-  img: 'www/img'
+  output: 'docs',
+  img: 'docs/img'
 };
 
 gulp.task('styles', function () {
@@ -46,7 +46,7 @@ gulp.task('observeFiles', function () {
 gulp.task('browserSync', function () {
   browserSync.init({
     server: {
-      baseDir: 'www',
+      baseDir: path.output,
       index: 'index.html'
     }
   });
