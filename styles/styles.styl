@@ -11,11 +11,11 @@ content-container()
 
 // Legacy code
 body
-  font-family: "museo-sans", sans-serif
-  font-weight: 300
+  font-family "museo-sans", sans-serif
+  font-weight 300
 
 p
-  font-weight: 300
+  font-weight 300
 
 .full-width
   width: 100%
@@ -36,7 +36,6 @@ a:active
   text-decoration: none
   font-weight: 700
 
-/* HEADLINES */
 h2
   font-size: 2.0em
   font-weight: 300
@@ -63,37 +62,11 @@ h4
   font-weight: 200
   font-size: 1.5em
 
-#site-navigation
-  display: inline
-  position: relative
-  float: right
-  clear: both
-  top: -2.7em
-  color: #fff
-
-.main-navigation ul
-  list-style: none
-  margin: 0
-  padding-left: 0
-
-.main-navigation li
-  float: left
-  position: relative
-  padding: 0 0 0 1.3em
-
-.main-navigation a
-  display: block
-  text-decoration: none
-  text-transform: uppercase
-  color: #fff
-
-/* Body */
-body.home div#top
-  height: 10em
-
 .row-bright
   background-color: #f1f7f7
-  padding: 4em 0 3em 0
+  padding 25px 20px
+  +above('tablet')
+    padding 4em 0 3em 0
 
 .row-dark
   background-color: #160c00
@@ -115,25 +88,6 @@ body.home div#top
   font-size: 1.5em
   font-weight: 200
 
-.row-tum
-  background-color: #ebebeb
-  padding: 2em 0 0 0 !important
-
-.row-lmu
-  background-color: #ebebeb
-  padding: 2em 0 0 0 !important
-
-.row-lmu-bg
-  background-color: #1b7e41
-  padding: 2em 0 1em 0
-  color: #fff
-
-.row-lmu-navigator
-  background-color: #f1f7f7
-  background-image: url(../img/projects-lmunavigator-bg.png)
-  background-size: cover
-  padding: 4em 0 4em 0
-
 .row-bg
   background-size: cover
 
@@ -143,6 +97,6 @@ body.home div#top
   font-size: 2.3em
   font-weight: 100
 
-// Imports
+// Module imports
 @require "header"
 @require "footer"

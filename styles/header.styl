@@ -24,7 +24,13 @@
 
   &__content
     content-container()
+    padding 0 15px
+    +above('mobile')
+      padding 0 25px
 
+  &__title
+    margin 10px 0 0 0
+      
   &__title a
     text-decoration: none
     color: #fff
