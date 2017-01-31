@@ -1,0 +1,35 @@
+.footer
+  background-color #212121
+  padding 50px 0
+  color #fff
+
+  &__wrapper
+    content-container()
+    max-width 1000px
+    display flex
+    justify-content space-around
+    flex-wrap wrap
+    +above('tablet')
+      justify-content space-between
+    
+  &__section
+    min-width 200px
+    padding-bottom 25px
+
+    &--cta
+      text-transform uppercase
+    
+    &-title
+      display block
+      text-transform uppercase
+      padding-bottom 15px
+      
+    &-link
+      display block
+      text-decoration none
+      font-size 0.9rem
+      line-height 2rem
+      &, &:visited
+        color #fff
+      &:hover, &:focus
+        color: #a8a8a8

@@ -1,11 +1,15 @@
-@import "rupture"
+// Basics
+@require "rupture"
+rupture.scale = 0 40rem 64rem
+rupture.scale-names = '' 'mobile' 'tablet' 'desktop'
 
-/* General */
+// General mixins
 content-container()
   max-width 1200px
   margin 0 auto
   padding 0 15px
 
+// Legacy code
 body
   font-family: "museo-sans", sans-serif
   font-weight: 300
@@ -66,59 +70,6 @@ h4
   clear: both
   top: -2.7em
   color: #fff
-
-/* Header */
-.header
-  background-position: center
-  background-size: cover
-  background-color: #dfb95d
-  background-image: url(../img/header-tofino@desktop.jpg)
-  width: 100%
-  height: 75vh
-  min-height: 550px
-  position: relative
-  margin: 0
-  padding: 0
-  overflow: hidden
-    
-  &:before
-    content: ""
-    color: #ff0000
-    display: block
-    position: absolute
-    width: 100%
-    height: 100%
-    bottom: 0px
-    background: url(../img/header-fade.png) repeat-x bottom
-    opacity: 0.6
-
-  &__content
-    content-container()
-
-  &__title a
-    text-decoration: none
-    color: #fff
-    font-weight: 100
-
-  &__slogan
-    top: 0
-    position: relative
-    color: #fff
-    text-align: center
-    text-transform: uppercase
-    font-weight: 500
-    border: 7px solid #fff
-    width: 95%
-    padding: 0 15px
-    max-width 1000px
-    font-size: 2.5em
-    margin: 25vh auto
-    +above(40rem)
-      font-size: 3.7em
-      margin: 20vh auto
-    +above(64rem)
-      font-size: 4rem
-      margin: 25vh auto
 
 .main-navigation ul
   list-style: none
@@ -183,16 +134,6 @@ body.home div#top
   background-size: cover
   padding: 4em 0 4em 0
 
-.row-footer
-  background-color: #212121
-  padding: 2.5em 0 4em 0
-  color: #fff
-
-.row-footer span
-  width: 100%
-  line-height: 3em
-  text-transform: uppercase
-
 .row-bg
   background-size: cover
 
@@ -202,13 +143,6 @@ body.home div#top
   font-size: 2.3em
   font-weight: 100
 
-/* FOOTER */
-footer a,
-footer a:visited,
-footer a:hover
-  color: #fff
-  font-size: 0.9em
-  line-height: 2em
-
-footer a:hover
-  color: #a8a8a8
+// Imports
+@require "header"
+@require "footer"

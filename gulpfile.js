@@ -11,13 +11,14 @@ var reload = browserSync.reload;
 var path = {
   html: '*.html',
   js: 'js/**/*.js',
-  styles: 'styles/**/*.styl',
+  stylesWatch: 'styles/**/*.styl',
+  stylesInput: 'styles/styles.styl',
   output: 'docs',
   img: 'docs/img'
 };
 
 gulp.task('styles', function () {
-  gulp.src(path.styles)
+  gulp.src(path.stylesInput)
     .pipe(sourcemaps.init())
     .pipe(stylus({
       paths: ['node_modules'],
@@ -38,7 +39,7 @@ gulp.task('minify', function () {
 });
 
 gulp.task('observeFiles', function () {
-  gulp.watch(path.styles, ['styles']);
+  gulp.watch(path.stylesWatch, ['styles']);
   gulp.watch(path.html, ['minify']);
   gulp.watch(path.html).on('change', reload);
 });
