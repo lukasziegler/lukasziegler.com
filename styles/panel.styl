@@ -1,0 +1,32 @@
+.panel
+  padding 15px 30px
+  +above('tablet')
+    padding 30px 45px
+  +above('desktop')
+    padding 45px 45px
+  background-color paleBlue
+
+  &__container
+    max-width maxWidthContent
+    margin 0 auto
+    display block
+    +above('desktop')
+      display flex
+
+  &__content
+    flex-grow 2
+
+  &__headline
+    font-size 40px
+    line-height 1.6
+  &__paragraph
+    font-size 16px
+    line-height 1.5
+
+  &__image
+    flex-shrink 0
+    flex-grow 1
+    max-width 300px
+    margin 0 auto
+    +above('tablet')
+      max-width 400px

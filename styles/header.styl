@@ -10,7 +10,7 @@
   margin: 0
   padding: 0
   overflow: hidden
-    
+
   &:before
     content: ""
     color: #ff0000
@@ -25,12 +25,12 @@
   &__content
     content-container()
     padding 0 15px
-    +above('mobile')
+    +above('tablet')
       padding 0 25px
 
   &__title
     margin 10px 0 0 0
-      
+
   &__title a
     text-decoration: none
     color: #fff
@@ -46,12 +46,15 @@
     border: 7px solid #fff
     width: 95%
     padding: 0 15px
-    max-width 1000px
+    max-width maxWidthContent
     font-size: 2.5em
     margin: 25vh auto
-    +above('mobile')
+    +above('tablet')
       font-size: 3.7em
       margin: 20vh auto
-    +above('tablet')
+    +above('desktop')
       font-size: 4rem
       margin: 25vh auto
+
+      &-link:hover
+        text-decoration none

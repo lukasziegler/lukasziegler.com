@@ -1,15 +1,19 @@
-// Basics
 @require "rupture"
-rupture.scale = 0 40rem 64rem
-rupture.scale-names = '' 'mobile' 'tablet' 'desktop'
+rupture.scale = 0 640px 1024px
+rupture.scale-names = 'mobile' 'tablet' 'desktop'
 
-// General mixins
+// general mixins
 content-container()
   max-width 1200px
   margin 0 auto
   padding 0 15px
 
-// Legacy code
+// base variables
+paleBlue = #f1f7f7
+sharkGrey = #27272b
+maxWidthContent = 1000px
+
+// base styles
 body
   font-family "museo-sans", sans-serif
   font-weight 300
@@ -19,6 +23,19 @@ body
 p
   font-weight 300
 
+a
+  &
+  &:visited
+  &:hover
+  &:focus
+  &:active
+    color sharkGrey
+    font-weight 700
+    text-decoration none
+  &:hover
+    text-decoration underline
+
+// Legacy code
 .full-width
   width: 100%
   margin-left: auto
@@ -28,15 +45,6 @@ p
 .row-container
   margin: 0 auto
   max-width: 1000px
-
-a,
-a:visited,
-a:hover,
-a:focus,
-a:active
-  color: #27272b
-  text-decoration: none
-  font-weight: 700
 
 h2
   font-size: 2.0em
@@ -104,4 +112,5 @@ h4
 
 // Module imports
 @require "header"
+@require "panel"
 @require "footer"
