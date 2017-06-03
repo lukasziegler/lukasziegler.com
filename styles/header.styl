@@ -23,13 +23,19 @@
     opacity: 0.6
 
   &__content
+    position relative
+    display flex
+    align-items center
+    height 100%
+    max-height 110vh
     content-container()
-    padding 0 15px
-    +above('tablet')
-      padding 0 25px
 
   &__title
-    margin 10px 0 0 0
+    position absolute
+    top 10px
+    left 15px
+    +above('tablet')
+      left 25px
 
   &__title a
     text-decoration: none
@@ -37,24 +43,28 @@
     font-weight: 100
 
   &__slogan
-    top: 0
-    position: relative
-    color: #fff
-    text-align: center
-    text-transform: uppercase
-    font-weight: 500
-    border: 7px solid #fff
     width: 95%
+    margin: 25vh auto
     padding: 0 15px
     max-width maxWidthContent
-    font-size: 2.5em
-    margin: 25vh auto
+    text-align: center
+    border: 7px solid #fff
+    font-size 40px
+    text-transform: uppercase
+    text-shadow rgba(0, 0, 0, 0.3) 0px 1px 2px
+    color white
     +above('tablet')
-      font-size: 3.7em
+      font-size: 55px
       margin: 20vh auto
     +above('desktop')
-      font-size: 4rem
+      font-size: 64px
       margin: 25vh auto
 
-      &-link:hover
+    &-link
+      &:hover,
+      &:visited,
+      &:active,
+      &:link
+        color: #fff
+      &:hover
         text-decoration none
