@@ -4,12 +4,14 @@
 var gulp = require('gulp');
 var stylus = require('gulp-stylus');
 var sourcemaps = require('gulp-sourcemaps');
+var pug = require('gulp-pug');
 var htmlmin = require('gulp-htmlmin');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 
 var path = {
   html: '*.html',
+  pug: '*.pug',
   js: 'js/**/*.js',
   stylesWatch: 'styles/**/*.styl',
   stylesInput: 'styles/styles.styl',
@@ -31,7 +33,8 @@ gulp.task('styles', function () {
 });
 
 gulp.task('minify', function () {
-  return gulp.src(path.html)
+  return gulp.src(path.pug)
+    .pipe(pug())
     .pipe(htmlmin({
       collapseWhitespace: true
     }))
@@ -40,7 +43,7 @@ gulp.task('minify', function () {
 
 gulp.task('observeFiles', function () {
   gulp.watch(path.stylesWatch, ['styles']);
-  gulp.watch(path.html, ['minify']);
+  gulp.watch(path.pug, ['minify']);
   gulp.watch(path.html).on('change', reload);
 });
 
