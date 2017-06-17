@@ -3,10 +3,10 @@ rupture.scale = 0 640px 1024px
 rupture.scale-names = 'mobile' 'tablet' 'desktop'
 
 // general mixins
-content-container()
+content-container(padding = 15px)
   max-width 1200px
   margin 0 auto
-  padding 0 15px
+  padding 0 padding
 
 // base variables
 paleBlue = #f1f7f7
@@ -97,4 +97,5 @@ h4
 // Module imports
 @require "header"
 @require "panel"
+@require "panel-list"
 @require "footer"

@@ -44,7 +44,7 @@ gulp.task('minify', function () {
 gulp.task('observeFiles', function () {
   gulp.watch(path.stylesWatch, ['styles']);
   gulp.watch(path.pug, ['minify']);
-  gulp.watch(path.html).on('change', reload);
+  gulp.watch(path.pug).on('change', reload);
 });
 
 gulp.task('browserSync', function () {

@@ -4,26 +4,31 @@
   color #fff
 
   &__wrapper
-    content-container()
+    content-container(30px)
     max-width 1000px
     display flex
     justify-content space-around
     flex-wrap wrap
     +above('tablet')
       justify-content space-between
-    
+
+  &__cta
+    padding 5px 10px
+    border 1px solid white
+    background-color white
+    color #212121
+    text-transform uppercase
+    cursor default
+
   &__section
-    min-width 200px
+    min-width 175px
     padding-bottom 25px
 
-    &--cta
-      text-transform uppercase
-    
     &-title
       display block
       text-transform uppercase
       padding-bottom 15px
-      
+
     &-link
       display block
       text-decoration none

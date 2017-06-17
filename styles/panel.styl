@@ -13,20 +13,30 @@
     +above('desktop')
       display flex
 
-  &__content
-    flex-grow 2
-
   &__headline
+    max-width maxWidthContent
+    margin 0 auto
+    padding-bottom 10px
     font-size 40px
-    line-height 1.6
+    line-height 1.4
+
+  &__content-block
+    width 100%
+
   &__paragraph
     font-size 16px
     line-height 1.5
 
-  &__image
+  &__image-block
     flex-shrink 0
     flex-grow 1
     max-width 300px
     margin 0 auto
-    +above('tablet')
-      max-width 400px
+    +above('desktop')
+      margin 0
+      max-width 350px
+      &--right
+        margin-left 35px
+      &--left
+        order -1
+        margin-right 35px
