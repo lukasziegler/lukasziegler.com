@@ -10,11 +10,11 @@ var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 
 var path = {
-  html: '*.html',
-  pug: '*.pug',
+  html: 'docs/*.html',
+  pug: 'src/*.pug',
   js: 'js/**/*.js',
-  stylesWatch: 'styles/**/*.styl',
-  stylesInput: 'styles/styles.styl',
+  stylesWatch: 'src/styles/**/*.styl',
+  stylesInput: 'src/styles/styles.styl',
   output: 'docs',
   img: 'docs/img'
 };
@@ -44,7 +44,7 @@ gulp.task('minify', function () {
 gulp.task('observeFiles', function () {
   gulp.watch(path.stylesWatch, ['styles']);
   gulp.watch(path.pug, ['minify']);
-  gulp.watch(path.pug).on('change', reload);
+  gulp.watch(path.html).on('change', reload);
 });
 
 gulp.task('browserSync', function () {
