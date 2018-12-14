@@ -2,13 +2,13 @@
 
 Talk presented at [DACHFest](https://dachfest.com) on November 11th, 2018 in Munich.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dCXgQTQ2Cm8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Slides
 
 Are available to [download (PDF)](https://github.com/lukasziegler/lukasziegler.com/tree/master/docs/talks/dachfest18/slides.pdf).
 
 ## Resources
-
-More to follow in the next days. Feel free to send me a PR.
 
 Interdisciplinary collaboration
 - http://www.designingcollaboration.com/
