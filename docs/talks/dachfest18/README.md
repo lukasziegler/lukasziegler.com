@@ -2,7 +2,11 @@
 
 Talk presented at [DACHFest](https://dachfest.com) on November 11th, 2018 in Munich.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dCXgQTQ2Cm8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+## Recording
+
+A video recording of the talk is available on Youtube:
+
+[DACHFest 2018 - Bridging the Gap Between Design and Development - Lukas Ziegler](https://www.youtube.com/watch?v=dCXgQTQ2Cm8)
 
 ## Slides
 
