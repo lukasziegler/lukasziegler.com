@@ -8,6 +8,8 @@ A video recording of the talk is available on Youtube:
 
 [DACHFest 2018 - Bridging the Gap Between Design and Development - Lukas Ziegler](https://www.youtube.com/watch?v=dCXgQTQ2Cm8)
 
+Also check out the [Sketchnotes by @lariki](https://twitter.com/lariki/status/1061636376993644551) for a short summary.
+
 ## Slides
 
 Are available to [download (PDF)](https://github.com/lukasziegler/lukasziegler.com/tree/master/docs/talks/dachfest18/slides.pdf).
