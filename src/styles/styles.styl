@@ -15,7 +15,7 @@ maxWidthContent = 1000px
 
 // base styles
 body
-  font-family "museo-sans", sans-serif
+  font-family "Open Sans", "museo-sans", sans-serif
   font-weight 300
   overflow-y scroll
   -webkit-overflow-scrolling touch
@@ -30,10 +30,12 @@ a.link
   &:focus
   &:active
     color sharkGrey
-    font-weight 700
+    font-weight 600
     text-decoration none
+    border-bottom 2px solid rgba(0,15,30,.2)
   &:hover
-    text-decoration underline
+    border-bottom 2px solid rgba(0,15,30, 1)
+    transition: .3s cubic-bezier(0.4, 0, 0.2, 0.99);
 
 // Legacy code
 .full-width
@@ -46,8 +48,10 @@ a.link
   margin: 0 auto
   max-width: 1000px
 
+h1, h2, h3
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif
+
 h3
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif
   font-weight: 300
   font-size: 2.5em
 
