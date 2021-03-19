@@ -1,89 +1,51 @@
 doctype html
 html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Lukas Ziegler — Web Developer at Red Bull Media House
-    link(rel='stylesheet', href='css/foundation.css')
-    link(rel='stylesheet', href='styles.css')
-    link(rel='apple-touch-icon', sizes='180x180', href='/favicon/apple-touch-icon.png?v=PYEREPLyrE')
-    link(rel='icon', type='image/png', href='/favicon/favicon-32x32.png?v=PYEREPLyrE', sizes='32x32')
-    link(rel='icon', type='image/png', href='/favicon/favicon-16x16.png?v=PYEREPLyrE', sizes='16x16')
-    link(rel='manifest', href='/favicon/manifest.json?v=PYEREPLyrE')
-    link(rel='mask-icon', href='/favicon/safari-pinned-tab.svg?v=PYEREPLyrE', color='#ffc40d')
-    link(rel='shortcut icon', href='/favicon/favicon.ico?v=PYEREPLyrE')
-    meta(name='apple-mobile-web-app-title', content='lukasziegler.com')
-    meta(name='application-name', content='lukasziegler.com')
-    meta(name='msapplication-config', content='/favicon/browserconfig.xml?v=PYEREPLyrE')
-    meta(name='theme-color', content='#dfb95d')
-    script(type='text/javascript', src='//use.typekit.net/gwz3goh.js')
-    script(type='text/javascript').
-      try {
-        Typekit.load();
-      } catch (e) {}
+  include templates/header.pug
   body
     header.header
       .header__content
         h1.header__title
           a(href='/') lukasziegler.com
         h2.header__slogan
-          a.header__slogan-link.scroll(href='#panelStudies') UX Engineer at Red Bull
+          a.header__slogan-link.scroll(href='#panelStudies') Stay Curious
 
     .panel#panelStudies
-      h3.panel__headline Computer Science
+      h3.panel__headline Work life
       .panel__container
         .panel__content-block
-          p.panel__paragraph My studies have trained me to recognize problems, understand them, and find effective solutions, whereas my empirical background helps me to better analyze users’ behavior and understand their needs. I chose to first lay my foundation in <a href='http://www.in.tum.de/' class='link' target='_blank'>Computer Science</a> and afterwards specialize in the field of <a href='http://www.mimuc.de' class='link' target='_blank'>Media Informatics</a>. After completing my studies, I started working as a web developer at <a href='https://www.redbullmediahouse.com/' class='link' target='_blank'>Red Bull Media House</a> in 2015 and am now working as a UX Engineer at the intersection of design and development.
+          p.panel__paragraph Through my studies in <a href='http://www.in.tum.de/' class='link' target='_blank'>Computer Science</a> and <a href='http://www.mimuc.de' class='link' target='_blank'>Media Informatics</a> I was able to lay a solid foundation in both the technical and visual field. In 2015 I started working as a web developer at <a href='https://www.redbullmediahouse.com/' class='link' target='_blank'>Red Bull Media House</a> on redbull.com and soon transitioned to a hybrid role, at the intersection of design and development. In 2020 my journey led me to the area of Innovation Management at <a href='https://www.redbull.com/' class='link' target='_blank'>Red Bull IT</a>, where I continue to live my curiosity and urge to shape the future.
+          
         .panel__image-block.panel__image-block--right
           img.panel__image-view(src='img/mockup-iphone.png', alt='')
 
     .row.row-dark.full-width.row-bg(style='background-image: url(img/panel-bright.jpg);')
       .row-container.row-teaser
-        p ... with a passion for media and photography
+        p Only those who attempt the absurd ...
     
     .panel
-      h3.panel__headline Hobbies
+      h3.panel__headline Personal interests
       .panel__container
         .panel__content-block
-          p.panel__paragraph Through my hobbies I try to keep a good balance to my work life.
+          p.panel__paragraph My interests range from technology to arts, to fully immersing myself in outdoor sports, to sitting still and enjoying the beauty of the little moments. The time I spent abroad had a profound effect on me and let me believe in the connectedness of the world. This realization, combined with the result of daily meditation, are what motivates me to strive for an improvement of the status quo in all aspects of life.
+          
           ul.panel-list.panel-list--left-aligned_desktop
+            li.panel-list__item Being outdoors
             li.panel-list__item Sports
+            li.panel-list__item Meditation
             li.panel-list__item Photography
-            li.panel-list__item Outdoors
         .panel__image-block.panel__image-block--left
           img.panel__image-view(src='img/iceland.jpg', alt='')
 
     .row.row-dark.full-width.row-bg(style='background-image: url(img/panel-dark.jpg);')
       .row-container.row-teaser
-        p ... and the desire to change the way we use media today
+        p ... can achieve the impossible.
 
     .panel
-      h3.panel__headline Side Projects
+      h3.panel__headline Side projects
       .panel__container
         .panel__content-block
-          p.panel__paragraph Throughout my studies I was able to combine my passion for sports with my interest for media and technology. In my freelance work for the <a href='http://www.leichtathletik.de/' class='link' target='_blank'>German Athletics Association</a> I acquired a lot of my practical experience. In order to give my university projects a deeper meaning I worked on a student-based research project called <a href='http://lmu-navigator.github.io/' class='link' target='_blank'>LMU Roomfinder</a>.
+          p.panel__paragraph Throughout my studies I was able to combine my passion for sports with my interest for media and technology. In my freelance work for the <a href='http://www.leichtathletik.de/' class='link' target='_blank'>German Athletics Association</a> I acquired a lot of my practical experience. In order to give my university projects a deeper meaning I worked on a student-based research project called <a href='http://lmu-navigator.github.io/' class='link' target='_blank'>LMU Roomfinder</a>. During my sabbatical in 2019/2020 I started contributing to <a href='https://climatemind.org/' class='link' target='_blank'>Climate Mind</a>, an open source project working on organizing scientific facts around climate change and making them accessible in an easy and personalized way.
         .panel__image-block.panel__image-block--right
           img.panel__image-view(src='img/mockup-ipad.png', alt='', style='width: 300px')
 
-    footer.footer
-      .footer__wrapper
-        .footer__section
-          span.footer__cta Contact
-        .footer__section
-          span.footer__section-title Social Media
-          a.footer__section-link(href='http://www.facebook.com/lukaszieglercom', target='_blank') Facebook
-          a.footer__section-link(href='https://twitter.com/ZieglerLukas', target='_blank') Twitter
-        .footer__section
-          span.footer__section-title Photography
-          a.footer__section-link(href='https://instagram.com/lukasziegler', target='_blank') Instagram
-          a.footer__section-link(href='https://www.pinterest.com/lukasziegler/pins/', target='_blank') Pinterest
-          a.footer__section-link(href='https://500px.com/lukasziegler', target='_blank') 500px
-        .footer__section
-          span.footer__section-title Computer Science
-          a.footer__section-link(href='https://github.com/lukasziegler/', target='_blank') GitHub
-          a.footer__section-link(href='https://www.linkedin.com/in/lukasziegler', target='_blank') LinkedIn
-          a.footer__section-link(href='https://www.xing.com/profile/Lukas_Ziegler2', target='_blank') Xing
-    script(src='js/jquery-2.1.4.min.js')
-    script(src='js/google-analytics.js')
-    script(src='js/smooth-scroll.js')
-    script(src='js/modernizr.js')
+    include templates/footer.pug

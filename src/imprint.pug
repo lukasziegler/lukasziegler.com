@@ -1,0 +1,18 @@
+doctype html
+html(lang='en')
+  include templates/header.pug
+  body
+    header.header
+      .header__content
+        h1.header__title
+          a(href='/') lukasziegler.com
+        h2.header__slogan
+          a.header__slogan-link.scroll(href='#panelStudies') Imprint
+
+    .panel#panelStudies
+      h3.panel__headline Legal disclaimer
+      .panel__container
+        .panel__content-block
+          p.panel__paragraph Are in the making.
+
+    include templates/footer.pug

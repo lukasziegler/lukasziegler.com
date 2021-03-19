@@ -10,5 +10,5 @@
      //go to destination
      $('html,body').animate({
          scrollTop: dest
-     }, 1000, 'swing');
+     }, 800, 'swing');
  });
