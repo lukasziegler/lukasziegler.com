@@ -13,9 +13,12 @@ paleBlue = #f1f7f7
 sharkGrey = #27272b
 maxWidthContent = 1000px
 
+headlineFont = Montserrat, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif
+bodyFont = "Open Sans", "museo-sans", sans-serif
+
 // base styles
 body
-  font-family "Open Sans", "museo-sans", sans-serif
+  font-family bodyFont
   font-weight 300
   overflow-y scroll
   -webkit-overflow-scrolling touch
@@ -30,12 +33,12 @@ a.link
   &:focus
   &:active
     color sharkGrey
-    font-weight 600
+    font-weight 400
     text-decoration none
     border-bottom 2px solid rgba(0,15,30,.2)
+    transition .2s cubic-bezier(0.4, 0, 0.2, 0.99);
   &:hover
     border-bottom 2px solid rgba(0,15,30, 1)
-    transition: .3s cubic-bezier(0.4, 0, 0.2, 0.99);
 
 // Legacy code
 .full-width
@@ -49,7 +52,7 @@ a.link
   max-width: 1000px
 
 h1, h2, h3
-  font-family: Montserrat, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif
+  font-family headlineFont
 
 h3
   font-weight: 300

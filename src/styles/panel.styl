@@ -1,9 +1,9 @@
 .panel
-  padding 15px 30px
+  padding 40px 30px
   +above('tablet')
-    padding 30px 45px
+    padding 32px 40px
   +above('desktop')
-    padding 45px 45px
+    padding 60px 40px
   background-color paleBlue
 
   &__container
@@ -16,9 +16,12 @@
   &__headline
     max-width maxWidthContent
     margin 0 auto
-    padding-bottom 10px
-    font-size 40px
+    font-size 32px
     line-height 1.4
+    padding-bottom 16px
+    +above('tablet')
+      padding-bottom 16px
+      font-size 40px
 
   &__content-block
     width 100%
@@ -42,3 +45,6 @@
       &--left
         order -1
         margin-right 35px
+
+  &__image-view
+    padding 8px 0

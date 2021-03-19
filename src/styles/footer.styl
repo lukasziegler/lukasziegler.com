@@ -1,7 +1,9 @@
 .footer
   background-color #212121
-  padding 50px 0
   color #fff
+  padding 60px 0
+  +above('tablet')
+    padding 60px 0 80px 0
 
   &__wrapper
     content-container(30px)
@@ -19,6 +21,8 @@
     color #212121
     text-transform uppercase
     cursor default
+    font-weight 700
+    font-size 1.1rem
 
   &__section
     min-width 175px
@@ -31,6 +35,10 @@
       margin-bottom 12px
       margin-right 5px
       border-bottom 3px solid rgba(white,0.2)
+      font-weight 700
+      font-size 1.1rem
+      color rgba(white, 0.7)
+
 
     &-link
       display block
@@ -38,7 +46,9 @@
       font-size 0.9rem
       font-weight 300
       line-height 2rem
+      transition .1s cubic-bezier(0.4, 0, 0.2, 0.99);
       &, &:visited
         color #b9b9b9
+        color rgba(white, 0.9)
       &:hover, &:focus
         color #fff
