@@ -24,10 +24,10 @@ html(lang='en')
     } catch (e) {}
 
   body
-    header.header
+    header.header.header--handpan
       .header__content
         h1.header__title
-          a(href='/') lukasziegler.com
+          a(href='/') Lukas Ziegler
         h2.header__slogan
           a.header__slogan-link.scroll(href='#panelStudies') Handpan lernen
 
@@ -35,7 +35,7 @@ html(lang='en')
       h3.panel__headline Handpan Workshops
       .panel__container
         .panel__content-block
-          p.panel__paragraph Through my studies in <a href='http://www.in.tum.de/' class='link' target='_blank'>Computer Science</a> and <a href='http://www.mimuc.de' class='link' target='_blank'>Media Informatics</a> I was able to lay a solid foundation in both technical and visual fields. In 2015 I started working as a Web Developer at <a href='https://www.redbullmediahouse.com/' class='link' target='_blank'>Red Bull Media House</a> on redbull.com and soon transitioned to the UX team in a hybrid role, at the intersection of design and development. After my sabbatical in Nepal, my journey led me to <a href='https://www.redbull.com/' class='link' target='_blank'>Red Bull IT</a> in the field of Innovation Management, where I followed my urge to shape the future. Since 2022 I now work as a Product Designer at <a href='https://www.climatepartner.com/' class='link'  target='_blank'>ClimatePartner</a>, where we enable companies to take climate action and reduce their footprint.
+          p.panel__paragraph Auf dieser Seite erfährst du in Kürze mehr über die bevorstehenden Handpan-Beginner-Workshops von Lukas.
           
         .panel__image-block.panel__image-block--right
           img.panel__image-view(src='img/mockup-iphone.png', alt='')
@@ -50,10 +50,8 @@ html(lang='en')
           p.panel__paragraph Lorem ipsum
           
           ul.panel-list.panel-list--left-aligned_desktop
-            li.panel-list__item Being outdoors
-            li.panel-list__item Sports
-            li.panel-list__item Meditation
-            li.panel-list__item Photography
+            li.panel-list__item 12. April 2025 (14-18 Uhr) – in Hallein
+            li.panel-list__item 17. Mai 2025 (14-18 Uhr) – in Hallein
         .panel__image-block.panel__image-block--left
           img.panel__image-view(src='img/iceland.jpg', alt='')
 
@@ -64,8 +62,8 @@ html(lang='en')
       h3.panel__headline Anmeldung
       .panel__container
         .panel__content-block
-          p.panel__paragraph Lorem ipsum
+          p.panel__paragraph Per WhatsApp oder Email. Näheres kommt spätestens morgen.
         .panel__image-block.panel__image-block--right
           img.panel__image-view(src='img/mockup-ipad.png', alt='', style='width: 300px')
 
-    include templates/footer.pug
+    include ../templates/footer.pug

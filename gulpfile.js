@@ -11,7 +11,7 @@ var reload = browserSync.reload;
 
 var path = {
   html: 'docs/*.html',
-  pug: 'src/*.pug',
+  pug: 'src/**/*.pug',
   js: 'js/**/*.js',
   stylesWatch: 'src/styles/**/*.styl',
   stylesInput: 'src/styles/styles.styl',
