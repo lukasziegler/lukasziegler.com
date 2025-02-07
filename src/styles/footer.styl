@@ -23,6 +23,14 @@
     cursor default
     font-weight 700
     font-size 1.1rem
+    
+    &:hover, &:active, &:focus
+      background-color rgba(white, 0.9)
+      color black
+      transition .2s cubic-bezier(0.4, 0, 0.2, 0.99);
+      
+    &:focus
+      text-decoration underline
 
   &__section
     min-width 175px
