@@ -1,0 +1,71 @@
+doctype html
+html(lang='en')
+  head
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title Handpan lernen mit Lukas Ziegler
+  link(rel='stylesheet', href='../css/foundation.css')
+  link(rel='stylesheet', href='../styles.css')
+  link(rel='apple-touch-icon', sizes='180x180', href='/favicon/apple-touch-icon.png?v=PYEREPLyrE')
+  link(rel='icon', type='image/png', href='/favicon/favicon-32x32.png?v=PYEREPLyrE', sizes='32x32')
+  link(rel='icon', type='image/png', href='/favicon/favicon-16x16.png?v=PYEREPLyrE', sizes='16x16')
+  link(rel='manifest', href='/favicon/manifest.json?v=PYEREPLyrE')
+  link(rel='mask-icon', href='/favicon/safari-pinned-tab.svg?v=PYEREPLyrE', color='#ffc40d')
+  link(rel='shortcut icon', href='/favicon/favicon.ico?v=PYEREPLyrE')
+  meta(name='apple-mobile-web-app-title', content='lukasziegler.com')
+  meta(name='application-name', content='lukasziegler.com')
+  meta(name='msapplication-config', content='/favicon/browserconfig.xml?v=PYEREPLyrE')
+  meta(name='theme-color', content='#dfb95d')
+  link(href='https://fonts.googleapis.com/css?family=Montserrat:300,700|Open+Sans:300,400&display=swap' rel='stylesheet')
+  script(type='text/javascript', src='//use.typekit.net/gwz3goh.js')
+  script(type='text/javascript').
+    try {
+      Typekit.load();
+    } catch (e) {}
+
+  body
+    header.header
+      .header__content
+        h1.header__title
+          a(href='/') lukasziegler.com
+        h2.header__slogan
+          a.header__slogan-link.scroll(href='#panelStudies') Handpan lernen
+
+    .panel#panelStudies
+      h3.panel__headline Handpan Workshops
+      .panel__container
+        .panel__content-block
+          p.panel__paragraph Through my studies in <a href='http://www.in.tum.de/' class='link' target='_blank'>Computer Science</a> and <a href='http://www.mimuc.de' class='link' target='_blank'>Media Informatics</a> I was able to lay a solid foundation in both technical and visual fields. In 2015 I started working as a Web Developer at <a href='https://www.redbullmediahouse.com/' class='link' target='_blank'>Red Bull Media House</a> on redbull.com and soon transitioned to the UX team in a hybrid role, at the intersection of design and development. After my sabbatical in Nepal, my journey led me to <a href='https://www.redbull.com/' class='link' target='_blank'>Red Bull IT</a> in the field of Innovation Management, where I followed my urge to shape the future. Since 2022 I now work as a Product Designer at <a href='https://www.climatepartner.com/' class='link'  target='_blank'>ClimatePartner</a>, where we enable companies to take climate action and reduce their footprint.
+          
+        .panel__image-block.panel__image-block--right
+          img.panel__image-view(src='img/mockup-iphone.png', alt='')
+
+    .row.row-dark.full-width.row-bg(style='background-image: url(img/panel-bright.jpg);')
+      .row-container.row-teaser
+    
+    .panel
+      h3.panel__headline Die nächsten Termine
+      .panel__container
+        .panel__content-block
+          p.panel__paragraph Lorem ipsum
+          
+          ul.panel-list.panel-list--left-aligned_desktop
+            li.panel-list__item Being outdoors
+            li.panel-list__item Sports
+            li.panel-list__item Meditation
+            li.panel-list__item Photography
+        .panel__image-block.panel__image-block--left
+          img.panel__image-view(src='img/iceland.jpg', alt='')
+
+    .row.row-dark.full-width.row-bg(style='background-image: url(img/panel-dark.jpg);')
+      .row-container.row-teaser
+
+    .panel
+      h3.panel__headline Anmeldung
+      .panel__container
+        .panel__content-block
+          p.panel__paragraph Lorem ipsum
+        .panel__image-block.panel__image-block--right
+          img.panel__image-view(src='img/mockup-ipad.png', alt='', style='width: 300px')
+
+    include templates/footer.pug
