@@ -1,18 +1,38 @@
 doctype html
 html(lang='en')
+  - var pageTitle = 'Impressum'
   include templates/header.pug
   body
-    header.header
+    header.header.header--condensed
       .header__content
         h1.header__title
           a(href='/') lukasziegler.com
-        h2.header__slogan
-          a.header__slogan-link.scroll(href='#panelStudies') Imprint
 
     .panel#panelStudies
-      h3.panel__headline Legal disclaimer
+      h2.panel__headline Impressum
       .panel__container
         .panel__content-block
-          p.panel__paragraph Are in the making.
+
+          p.panel__paragraph Informationen und Offenlegung gemäß §5 (1) ECG, § 25 MedienG, § 63 GewO und § 14 UGB
+
+          p.panel__paragraph <b>Webseitenbetreiber:</b> Lukas Ziegler
+
+          p.panel__paragraph <b>Anschrift:</b> Schöndorferplatz 8 / 13, 5400 Hallein
+
+          p.panel__paragraph <b>UID-Nr:</b> ATU81445303
+
+          p.panel__paragraph <b>Gewerbeaufsichtbehörde:</b> Bezirkshauptmannschaft Hallein
+
+          p.panel__paragraph <b>Kontaktdaten:</b> impressum at lukasziegler.com
+
+          h3.panel__headline.panel__headline--small Anwendbare Rechtsvorschrift
+
+          p.panel__paragraph <b>Online Streitbeilegung:</b> Verbraucher, welche in Österreich oder in einem sonstigen Vertragsstaat der ODR-VO niedergelassen sind, haben die Möglichkeit Probleme bezüglich dem entgeltlichen Kauf von Waren oder Dienstleistungen im Rahmen einer Online-Streitbeilegung (nach OS, AStG) zu lösen. Die Europäische Kommission stellt eine Plattform hierfür bereit: https://ec.europa.eu/consumers/odr
+
+          p.panel__paragraph <b>Urheberrecht:</b> Die Inhalte dieser Webseite unterliegen, soweit dies rechtlich möglich ist, diversen Schutzrechten (z.B dem Urheberrecht). Jegliche Verwendung/Verbreitung von bereitgestelltem Material, welche urheberrechtlich untersagt ist, bedarf schriftlicher Zustimmung des Webseitenbetreibers.
+
+          p.panel__paragraph <b>Haftungsausschluss:</b> Trotz sorgfältiger inhaltlicher Kontrolle übernimmt der Webseitenbetreiber dieser Webseite keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich. Sollten Sie dennoch auf ausgehende Links aufmerksam werden, welche auf eine Webseite mit rechtswidriger Tätigkeit/Information verweisen, ersuchen wir um dementsprechenden Hinweis, um diese nach § 17 Abs. 2 ECG umgehend zu entfernen. Die Urheberrechte Dritter werden vom Betreiber dieser Webseite mit größter Sorgfalt beachtet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden derartiger Rechtsverletzungen werden wir den betroffenen Inhalt umgehend entfernen.
+
+          p.panel__paragraph <b>Quelle:</b> Impressum Generator Österreich
 
     include templates/footer.pug
