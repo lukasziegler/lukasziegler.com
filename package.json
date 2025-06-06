@@ -22,5 +22,8 @@
     "gulp-stylus": "^2.6.0",
     "rupture": "^0.6.2",
     "stylus": "^0.54.5"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.11"
   }
 }
