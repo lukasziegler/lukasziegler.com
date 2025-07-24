@@ -1,8 +1,7 @@
 .panel-list
   list-style none
-  font-size 20px
+  font-size 18px
   font-weight 200
-  text-align center
   margin 32px 0
 
   &--left-aligned_desktop
@@ -12,3 +11,23 @@
       
   &__item
     margin 24px 0
+
+  &--numbered
+    list-style auto
+    margin 20px 40px
+    
+    & > li
+      padding 8px 0
+
+  &--unnumbered
+    list-style square
+    text-align left
+    font-size 18px
+    margin-left 40px
+    
+    & > li
+      padding 8px 0
+
+  &--centered
+    text-align center
+    font-size 20px
