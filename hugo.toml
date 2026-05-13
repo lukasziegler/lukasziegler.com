@@ -1,8 +1,8 @@
 #-------------------------------
 # Site Settings
-baseURL      = "https://lukasziegler.com/"
-languageCode = "en"
-title        = "Lukas Ziegler"
+baseURL = "https://lukasziegler.com/"
+locale  = "en"
+title   = "Lukas Ziegler"
 
 defaultContentLanguage = "en"
 
@@ -18,10 +18,10 @@ defaultContentLanguage = "en"
 # DE files use the .de.md suffix, e.g. my-event.de.md
 [languages]
   [languages.en]
-    languageName = "English"
+    label  = "English"
     weight = 1
   [languages.de]
-    languageName = "Deutsch"
+    label  = "Deutsch"
     weight = 2
 
 #-------------------------------
