@@ -1,0 +1,17 @@
+# German UI strings
+# Usage in templates: {{ i18n "key" }}
+
+nav_home: "Start"
+nav_design: "Design"
+nav_sound: "Sound"
+nav_events: "Veranstaltungen"
+nav_more: "Mehr"
+nav_about: "Über mich"
+nav_contact: "Kontakt"
+
+label_upcoming_events: "Kommende Veranstaltungen"
+label_past_events: "Vergangene Veranstaltungen"
+label_book_now: "Jetzt buchen"
+label_learn_more: "Mehr erfahren"
+label_featured_work: "Ausgewählte Arbeiten"
+label_read_article: "Artikel lesen"

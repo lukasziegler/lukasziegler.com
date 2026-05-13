@@ -3,3 +3,11 @@ node_modules/
 .idea/
 yarn.lock
 package-lock.json
+
+# Hugo
+public/
+resources/
+.hugo_build.lock
+
+# Editor
+.vscode/
