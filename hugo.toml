@@ -28,12 +28,12 @@ defaultContentLanguage = "en"
 #-------------------------------
 # Author / Hero section (homepage)
 [params.author]
-  author__name  = "Lukas Ziegler"
-  author__title = "Product Designer &amp; Handpan Facilitator"
-  author__bio   = "I design digital products and facilitate sound experiences. Based in Germany."
-  author__image = ""   # e.g. "/img/lukas.jpg"
+  author__name   = "Lukas Ziegler"
+  author__title  = "Product Designer &amp; Handpan Facilitator"
+  author__bio    = "For more than 20 years, I've followed my passion — and along the way, discovered new sides and interests of myself. I approach everything I do with an open and curious mind, learning and evolving with each step. I see (work) life as a lifelong journey, where passion and curiosity show the way."
+  author__image  = ""   # e.g. "/img/lukas.jpg"
   author__avatar = ""
-  button__text  = "See my work"
+  button__text   = "See my work"
 
 #-------------------------------
 # Projects section (homepage + /projects/)
