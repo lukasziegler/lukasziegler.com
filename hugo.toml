@@ -3,14 +3,81 @@
 baseURL = "https://lukasziegler.com/"
 locale  = "en"
 title   = "Lukas Ziegler"
+theme   = "avenco"
 
 defaultContentLanguage = "en"
+
+#-------------------------------
+# Pagination
+[pagination]
+  pagerSize = 6
 
 #-------------------------------
 # Global Params
 [params]
   description = "Product Designer & Handpan Facilitator"
   currency    = "Euros"
+  logo        = ""   # e.g. "/img/logo.svg"
+
+#-------------------------------
+# Cover image (used in header/footer background)
+[params.global.image]
+  enable       = false
+  cover__image = ""
+
+#-------------------------------
+# Author / Hero section (homepage)
+[params.author]
+  author__name  = "Lukas Ziegler"
+  author__title = "Product Designer &amp; Handpan Facilitator"
+  author__bio   = "I design digital products and facilitate sound experiences. Based in Germany."
+  author__image = ""   # e.g. "/img/lukas.jpg"
+  author__avatar = ""
+  button__text  = "See my work"
+
+#-------------------------------
+# Projects section (homepage + /projects/)
+[params.projects]
+  enable               = true
+  projects__title      = "Selected <span class='text-span'>Work</span>"
+  projects__description = ""
+
+#-------------------------------
+# Blog section — disabled until /reads/ is wired up
+[params.blog]
+  enable = false
+
+#-------------------------------
+# Testimonials — not used
+[params.testimonials]
+  enable = false
+
+#-------------------------------
+# Contact form — disabled for now
+[params.contact]
+  enable = false
+
+#-------------------------------
+# Mailing list — disabled until provider is chosen
+[params.mailchimp]
+  enable = false
+
+#-------------------------------
+# Comments — not used
+[params.disqus]
+  enable = false
+
+#-------------------------------
+# Social links (footer)
+[[params.social]]
+  icon = "ion-logo-instagram"
+  name = "Instagram"
+  link = "https://instagram.com/lukasziegler"
+
+[[params.social]]
+  icon = "ion-logo-linkedin"
+  name = "LinkedIn"
+  link = "https://linkedin.com/in/lukasziegler"
 
 #-------------------------------
 # Languages
@@ -36,7 +103,7 @@ defaultContentLanguage = "en"
   [[menu.main]]
     identifier = "design"
     name       = "Design"
-    url        = "/design/"
+    url        = "/projects/"
     weight     = 2
 
   [[menu.main]]

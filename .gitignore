@@ -11,3 +11,6 @@ resources/
 
 # Editor
 .vscode/
+
+# Misc
+/themes/
