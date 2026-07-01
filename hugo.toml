@@ -1,7 +1,6 @@
 #-------------------------------
 # Site Settings
 baseURL = "https://lukasziegler.com/"
-locale  = "en"
 title   = "Lukas Ziegler"
 theme   = "avenco"
 
@@ -29,7 +28,7 @@ defaultContentLanguage = "en"
 # Author / Hero section (homepage)
 [params.author]
   author__name   = "Lukas Ziegler"
-  author__title  = "Product Designer &amp; Handpan Facilitator"
+  author__title  = "Product Designer & Handpan Facilitator"
   author__bio    = "For more than 20 years, I've followed my passion — and along the way, discovered new sides and interests of myself. I approach everything I do with an open and curious mind, learning and evolving with each step. I see (work) life as a lifelong journey, where passion and curiosity show the way."
   author__image  = ""   # e.g. "/img/lukas.jpg"
   author__avatar = ""
@@ -85,11 +84,13 @@ defaultContentLanguage = "en"
 # DE files use the .de.md suffix, e.g. my-event.de.md
 [languages]
   [languages.en]
-    label  = "English"
-    weight = 1
+    label        = "English"
+    languageCode = "en"
+    weight       = 1
   [languages.de]
-    label  = "Deutsch"
-    weight = 2
+    label        = "Deutsch"
+    languageCode = "de"
+    weight       = 2
 
 #-------------------------------
 # Navigation
