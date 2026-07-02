@@ -121,8 +121,9 @@ const switchHref = alternatePath(current, otherLang);
   .nav-list > li {
     margin-inline: 24px;
 
+    /* Language switch + theme toggle sit close together (24px gap) */
     &:last-child {
-      margin-inline-end: 0;
+      margin-inline: 0;
     }
   }
 
@@ -185,6 +186,17 @@ const switchHref = alternatePath(current, otherLang);
 
   :global([data-theme='dark']) .icon-sun {
     display: block;
+  }
+
+  /* OS prefers dark and the user hasn't overridden it */
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .icon-moon {
+      display: none;
+    }
+
+    :global(:root:not([data-theme='light'])) .icon-sun {
+      display: block;
+    }
   }
 
   /* Dropdown */
@@ -326,16 +338,15 @@ const switchHref = alternatePath(current, otherLang);
   document.querySelector('.nav-open')?.addEventListener('click', () => nav?.classList.add('is-open'));
   document.querySelector('.nav-close')?.addEventListener('click', () => nav?.classList.remove('is-open'));
 
-  // Dark/light toggle — persisted in localStorage, light is the default
+  // Dark/light toggle — follows the OS preference until the user overrides it,
+  // then the explicit choice is persisted in localStorage.
   document.querySelector('.theme-toggle')?.addEventListener('click', () => {
     const root = document.documentElement;
-    if (root.dataset.theme === 'dark') {
-      delete root.dataset.theme;
-      localStorage.removeItem('theme');
-    } else {
-      root.dataset.theme = 'dark';
-      localStorage.setItem('theme', 'dark');
-    }
+    const osDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const current = root.dataset.theme ?? (osDark ? 'dark' : 'light');
+    const next = current === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    localStorage.setItem('theme', next);
   });
 
   // Close the dropdown when clicking outside it (desktop)

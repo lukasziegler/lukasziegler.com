@@ -49,8 +49,9 @@ const personJsonLd = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Apply the saved theme before first paint to avoid a flash -->
     <script is:inline>
-      if (localStorage.getItem('theme') === 'dark') {
-        document.documentElement.dataset.theme = 'dark';
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || savedTheme === 'light') {
+        document.documentElement.dataset.theme = savedTheme;
       }
     </script>
     <title>{pageTitle}</title>
