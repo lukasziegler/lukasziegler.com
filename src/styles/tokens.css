@@ -13,12 +13,12 @@
   --brand-blue-gray: #58576d;
 
   /* ---- Color ---- */
-  --color-bg: light-dark(#fff, #14122e);
-  --color-surface: light-dark(#f5f5f5, #1d1a3d);
-  --color-text: light-dark(var(--brand-dark), #ecebf5);
-  --color-text-muted: light-dark(var(--brand-blue-gray), #a5a3bd);
+  --color-bg: light-dark(#fff, #161618);
+  --color-surface: light-dark(#f5f5f5, #1f1f22);
+  --color-text: light-dark(var(--brand-dark), #ececee);
+  --color-text-muted: light-dark(var(--brand-blue-gray), #a5a5ab);
   --color-accent: light-dark(var(--brand-primary), #8c82f0);
-  --color-border: light-dark(#ededf3, #2a2650);
+  --color-border: light-dark(#ededf3, #2c2c30);
 
   --gradient-brand: linear-gradient(90deg, var(--brand-primary) 0%, var(--brand-secondary) 167%);
   --gradient-text: linear-gradient(135deg, var(--color-accent) 38%, var(--brand-secondary) 100%);
