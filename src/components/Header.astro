@@ -68,6 +68,17 @@ const switchHref = alternatePath(current, otherLang);
               {otherLang.toUpperCase()}
             </a>
           </li>
+          <li>
+            <button class="theme-toggle" aria-label={t('nav.themeToggle')}>
+              <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+              <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"></circle>
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+              </svg>
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
@@ -143,6 +154,37 @@ const switchHref = alternatePath(current, otherLang);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-pill);
     padding: 0.5em 0.8em;
+  }
+
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    background: none;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: var(--transition-base);
+  }
+
+  .theme-toggle:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  .icon-sun {
+    display: none;
+  }
+
+  :global([data-theme='dark']) .icon-moon {
+    display: none;
+  }
+
+  :global([data-theme='dark']) .icon-sun {
+    display: block;
   }
 
   /* Dropdown */
@@ -283,6 +325,18 @@ const switchHref = alternatePath(current, otherLang);
   const nav = document.getElementById('main-nav');
   document.querySelector('.nav-open')?.addEventListener('click', () => nav?.classList.add('is-open'));
   document.querySelector('.nav-close')?.addEventListener('click', () => nav?.classList.remove('is-open'));
+
+  // Dark/light toggle — persisted in localStorage, light is the default
+  document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+    const root = document.documentElement;
+    if (root.dataset.theme === 'dark') {
+      delete root.dataset.theme;
+      localStorage.removeItem('theme');
+    } else {
+      root.dataset.theme = 'dark';
+      localStorage.setItem('theme', 'dark');
+    }
+  });
 
   // Close the dropdown when clicking outside it (desktop)
   document.addEventListener('click', (e) => {

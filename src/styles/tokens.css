@@ -4,8 +4,8 @@
    ============================================================ */
 
 :root {
-  /* Light theme is the default. Switch to `light dark` to follow the OS preference —
-     the dark values in the light-dark() tokens below are ready to go. */
+  /* Light theme is the default. The header toggle sets data-theme="dark" on <html>
+     (persisted in localStorage) — the dark values live in the light-dark() tokens below. */
   color-scheme: light;
 
   /* ---- Brand (Avenco) ---- */
@@ -65,4 +65,9 @@
   /* ---- Motion ---- */
   --transition-fast: all 0.25s ease;
   --transition-base: all 0.35s;
+}
+
+/* Dark mode, activated by the header toggle */
+:root[data-theme='dark'] {
+  color-scheme: dark;
 }
