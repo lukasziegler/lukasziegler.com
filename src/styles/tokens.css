@@ -4,7 +4,9 @@
    ============================================================ */
 
 :root {
-  color-scheme: light dark;
+  /* Light theme is the default. Switch to `light dark` to follow the OS preference —
+     the dark values in the light-dark() tokens below are ready to go. */
+  color-scheme: light;
 
   /* ---- Brand (Avenco) ---- */
   --brand-primary: #4235d0;
