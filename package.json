@@ -9,8 +9,8 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.4.0",
+    "@astrojs/sitemap": "^3.7.3",
     "@fontsource/nunito": "^5.2.0",
-    "astro": "^5.10.0"
+    "astro": "^7.0.6"
   }
 }
