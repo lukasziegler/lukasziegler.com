@@ -1,0 +1,67 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+/**
+ * Renders all markdown pages for both languages with mirrored URLs:
+ *   en/sound.md       → /sound/
+ *   de/sound.md       → /de/sound/
+ *   en/more/about.md  → /more/about/
+ *
+ * Excluded: home, events, projects — they have their own templates.
+ */
+export async function getStaticPaths() {
+  const pages = await getCollection('pages', ({ id, data }) => {
+    const slug = id.replace(/^(en|de)\//, '');
+    return !data.draft && !['home', 'events', 'projects'].includes(slug);
+  });
+
+  return pages.map((page) => {
+    const [lang, ...rest] = page.id.split('/');
+    const slug = rest.join('/');
+    return {
+      params: { slug: lang === 'en' ? slug : `de/${slug}` },
+      props: { page },
+    };
+  });
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+---
+
+<BaseLayout
+  title={page.data.title}
+  description={page.data.description}
+  ogImage={page.data.image}
+>
+  <article class="container">
+    {
+      page.data.image && (
+        <img class="page-image" src={page.data.image} alt="" loading="eager" />
+      )
+    }
+    <h1>{page.data.title}</h1>
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  article {
+    padding-block: var(--space-xl) var(--space-2xl);
+  }
+
+  .page-image {
+    width: 100%;
+    max-height: 24rem;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+    margin-block-end: var(--space-xl);
+  }
+
+  h1 {
+    margin-block-end: var(--space-lg);
+  }
+</style>

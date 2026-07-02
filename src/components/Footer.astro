@@ -1,0 +1,69 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { social } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <ul class="social">
+      {
+        social.map((s) => (
+          <li>
+            <a href={s.link} rel="me noopener">
+              {s.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="tagline">{t('footer.tagline')}</p>
+    <div class="copyright">
+      {year} © <a href="/">Lukas Ziegler</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding-block-start: var(--space-3xl);
+    text-align: center;
+  }
+
+  .social {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+    padding: 0;
+    font-weight: var(--weight-heading);
+  }
+
+  .social a:hover {
+    color: var(--color-accent);
+  }
+
+  .tagline {
+    margin-block-start: var(--space-md);
+    margin-inline: auto;
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .copyright {
+    margin-block: var(--space-md) var(--space-2xl);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .copyright a {
+    font-weight: var(--weight-heading);
+  }
+
+  .copyright a:hover {
+    color: var(--color-accent);
+  }
+</style>

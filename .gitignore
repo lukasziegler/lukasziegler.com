@@ -1,16 +1,18 @@
-.DS_Store
-node_modules/
-.idea/
-yarn.lock
-package-lock.json
+# Astro build output
+dist/
+.astro/
 
-# Hugo
-public/
-resources/
-.hugo_build.lock
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.production
+
+# OS
+.DS_Store
+Thumbs.db
 
 # Editor
 .vscode/
-
-# Misc
-/themes/
+.idea/

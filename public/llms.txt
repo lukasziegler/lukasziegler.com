@@ -1,0 +1,14 @@
+# Lukas Ziegler
+
+> Personal site of Lukas Ziegler — Product Designer & Handpan Facilitator based in Salzburg, Austria. The site covers his product design work (UX, systems thinking) and his sound work (handpan workshops, sound journeys, retreats, private lessons taught with the Malte Marten Method).
+
+Default language is English; German versions live under /de/.
+
+## Pages
+
+- [Portfolio](https://lukasziegler.com/projects/): Selected design work — product design, UX, systems thinking
+- [Sound](https://lukasziegler.com/sound/): Handpan workshops, retreats, showroom, and private lessons in and around Salzburg
+- [Events](https://lukasziegler.com/events/): Upcoming workshops, sound journeys, and retreats (booking via TicketTailor)
+- [Reads](https://lukasziegler.com/reads/): Articles and writing
+- [About](https://lukasziegler.com/more/about/): Career (Red Bull Media House, Red Bull IT, ClimatePartner) and second path in sound work
+- [Contact](https://lukasziegler.com/more/contact/): lukas@lukasziegler.com · workshop bookings: anmeldung@lukasziegler.com

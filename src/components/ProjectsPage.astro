@@ -1,0 +1,67 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from './ProjectCard.astro';
+import { useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const page = await getEntry('pages', `${lang}/projects`);
+if (!page) throw new Error(`Missing content: pages/${lang}/projects.md`);
+const { Content } = await render(page);
+
+const projects = (
+  await getCollection('projects', ({ id, data }) => id.startsWith(`${lang}/`) && !data.draft)
+).sort((a, b) => a.data.weight - b.data.weight);
+---
+
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <div class="container">
+    <h1>{page.data.title}</h1>
+    <div class="prose intro">
+      <Content />
+    </div>
+
+    {
+      projects.length === 0 ? (
+        <p class="empty">{t('label.noProjects')}</p>
+      ) : (
+        <div class="projects-grid">
+          {projects.map((project) => (
+            <ProjectCard project={project} lang={lang} />
+          ))}
+        </div>
+      )
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    padding-block: var(--space-xl) var(--space-2xl);
+  }
+
+  h1 {
+    margin-block-end: var(--space-lg);
+  }
+
+  .intro {
+    margin-block-end: var(--space-xl);
+  }
+
+  .empty {
+    color: var(--color-text-muted);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    gap: var(--space-xl);
+  }
+</style>

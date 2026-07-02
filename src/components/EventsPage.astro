@@ -1,0 +1,145 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const page = await getEntry('pages', `${lang}/events`);
+if (!page) throw new Error(`Missing content: pages/${lang}/events.md`);
+const { Content } = await render(page);
+
+const events = await getCollection(
+  'events',
+  ({ id, data }) => id.startsWith(`${lang}/`) && !data.draft
+);
+
+const now = new Date();
+const upcoming = events
+  .filter((e) => (e.data.endDate ?? e.data.date) >= now)
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+const past = events
+  .filter((e) => (e.data.endDate ?? e.data.date) < now)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const fmt = new Intl.DateTimeFormat(lang === 'de' ? 'de-AT' : 'en-GB', {
+  dateStyle: 'full',
+  timeStyle: 'short',
+});
+---
+
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <div class="container">
+    <h1>{page.data.title}</h1>
+    <div class="prose intro">
+      <Content />
+    </div>
+
+    <section aria-labelledby="upcoming">
+      <h2 id="upcoming">{t('label.upcomingEvents')}</h2>
+      {
+        upcoming.length === 0 ? (
+          <p class="empty">{t('label.noUpcomingEvents')}</p>
+        ) : (
+          <ul class="events">
+            {upcoming.map((event) => (
+              <li>
+                <article>
+                  <h3>{event.data.title}</h3>
+                  <p class="meta">
+                    <time datetime={event.data.date.toISOString()}>{fmt.format(event.data.date)}</time>
+                    {' · '}
+                    {event.data.location}, {event.data.city}
+                    {event.data.price && ` · ${event.data.price}`}
+                  </p>
+                  <p>{event.data.description}</p>
+                  {event.data.bookingUrl && (
+                    <a class="button" href={event.data.bookingUrl}>
+                      {t('label.bookNow')}
+                    </a>
+                  )}
+                </article>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </section>
+
+    {
+      past.length > 0 && (
+        <section aria-labelledby="past">
+          <h2 id="past">{t('label.pastEvents')}</h2>
+          <ul class="events past">
+            {past.map((event) => (
+              <li>
+                <article>
+                  <h3>{event.data.title}</h3>
+                  <p class="meta">
+                    <time datetime={event.data.date.toISOString()}>{fmt.format(event.data.date)}</time>
+                    {' · '}
+                    {event.data.location}, {event.data.city}
+                  </p>
+                </article>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    padding-block: var(--space-xl) var(--space-2xl);
+  }
+
+  h1 {
+    margin-block-end: var(--space-lg);
+  }
+
+  section {
+    margin-block-start: var(--space-xl);
+  }
+
+  .empty {
+    color: var(--color-text-muted);
+  }
+
+  .events {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--space-lg);
+    margin-block-start: var(--space-lg);
+  }
+
+  .events article {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: var(--space-xl);
+    background: var(--color-surface);
+  }
+
+  .events .meta {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    margin-block: var(--space-2xs) var(--space-sm);
+  }
+
+  .events .button {
+    margin-block-start: var(--space-md);
+    font-size: var(--text-sm);
+  }
+
+  .past article {
+    opacity: 0.7;
+  }
+</style>

@@ -1,0 +1,242 @@
+---
+import { getEntry, getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from './ProjectCard.astro';
+import { useTranslations, localizePath } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const page = await getEntry('pages', `${lang}/home`);
+if (!page) throw new Error(`Missing content: pages/${lang}/home.md`);
+const hero = page.data.hero;
+const { Content } = await render(page);
+
+const projects = (
+  await getCollection('projects', ({ id, data }) => id.startsWith(`${lang}/`) && !data.draft)
+)
+  .sort((a, b) => a.data.weight - b.data.weight)
+  .slice(0, 6);
+---
+
+<BaseLayout
+  title={page.data.title}
+  description={page.data.description}
+  ogImage={hero?.image}
+  isHome
+>
+  <!-- Hero (Avenco author section) -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-left">
+        <h1 class="hero-title">{hero?.title ?? page.data.title}</h1>
+        {hero?.bio ? <p class="hero-bio">{hero.bio}</p> : <div class="prose"><Content /></div>}
+        {
+          hero?.ctaText && (
+            <a class="hero-btn" href="#projects">
+              <span class="circle-bg">↓</span> {hero.ctaText}
+            </a>
+          )
+        }
+      </div>
+      {
+        hero?.image && (
+          <div class="hero-right">
+            <div class="hero-image">
+              <img src={hero.image} alt="Lukas Ziegler" width="480" height="480" loading="eager" />
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  <!-- Projects (Avenco projects section) -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">
+          {t('home.projectsTitle')}
+          <span class="text-span">{t('home.projectsTitleAccent')}</span>
+        </h2>
+        <a class="section-link" href={localizePath('/projects/', lang)}>{t('label.viewAll')} →</a>
+      </div>
+
+      {
+        projects.length === 0 ? (
+          <p class="empty">{t('label.noProjects')}</p>
+        ) : (
+          <div class="projects-grid">
+            {projects.map((project) => (
+              <ProjectCard project={project} lang={lang} />
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-block: var(--space-3xl);
+
+    @media (max-width: 48rem) {
+      padding-block: var(--space-xl) var(--space-2xl);
+    }
+  }
+
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+
+    @media (max-width: 48rem) {
+      flex-direction: column;
+    }
+  }
+
+  .hero-left {
+    max-width: 32.5rem;
+    margin-inline-end: auto;
+  }
+
+  .hero-title {
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-black);
+  }
+
+  .hero-bio {
+    margin-block-start: var(--space-lg);
+    font-size: var(--text-base);
+    line-height: 1.6;
+  }
+
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-block-start: 2.75rem;
+    padding: 4px 12px 4px 4px;
+    font-size: 0.75rem;
+    font-weight: var(--weight-heading);
+    text-transform: uppercase;
+    line-height: 1;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-pill);
+    color: var(--color-accent);
+    transition: var(--transition-base);
+  }
+
+  .hero-btn:hover {
+    background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+  }
+
+  .circle-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #fff;
+  }
+
+  .hero-right {
+    position: relative;
+
+    @media (max-width: 48rem) {
+      order: -1;
+      width: 100%;
+    }
+  }
+
+  .hero-image {
+    position: relative;
+    width: min(30rem, 40vw);
+    aspect-ratio: 1;
+
+    /* Dotted decoration (Avenco) */
+    &::after {
+      content: '';
+      position: absolute;
+      inset-block-start: -2%;
+      inset-inline-start: -8.7%;
+      transform: rotate(-45deg);
+      width: 130px;
+      height: 100px;
+      background-image: repeating-radial-gradient(
+        color-mix(in srgb, var(--color-accent) 70%, transparent),
+        color-mix(in srgb, var(--color-accent) 70%, transparent) 2px,
+        transparent 2px,
+        transparent 100%
+      );
+      background-size: 15px 15px;
+      z-index: 0;
+    }
+
+    img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius-image);
+      box-shadow: 0 100px 80px rgb(98 56 189 / 0.07), 0 41px 33px rgb(98 56 189 / 0.05),
+        0 22px 18px rgb(98 56 189 / 0.04), 0 12px 10px rgb(98 56 189 / 0.035);
+    }
+
+    @media (max-width: 48rem) {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+
+      img {
+        border-radius: calc(var(--radius-image) / 3);
+      }
+    }
+  }
+
+  .section {
+    padding-block: var(--space-2xl);
+  }
+
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block-end: var(--space-xl);
+  }
+
+  .section-title {
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-black);
+    margin: 0;
+  }
+
+  .section-link {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-heading);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .section-link:hover {
+    color: var(--color-accent);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .empty {
+    color: var(--color-text-muted);
+  }
+</style>

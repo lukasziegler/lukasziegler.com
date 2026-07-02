@@ -1,0 +1,293 @@
+---
+import { getLangFromUrl, useTranslations, localizePath, alternatePath } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const otherLang = lang === 'en' ? 'de' : 'en';
+
+const mainItems = [
+  { href: localizePath('/', lang), label: t('nav.home') },
+  { href: localizePath('/projects/', lang), label: t('nav.design') },
+  { href: localizePath('/sound/', lang), label: t('nav.sound') },
+  { href: localizePath('/events/', lang), label: t('nav.events') },
+] as const;
+
+const moreItems = [
+  { href: localizePath('/more/about/', lang), label: t('nav.about') },
+  { href: localizePath('/more/contact/', lang), label: t('nav.contact') },
+  { href: localizePath('/more/imprint/', lang), label: t('nav.imprint') },
+  { href: localizePath('/more/privacy/', lang), label: t('nav.privacy') },
+] as const;
+
+const current = Astro.url.pathname;
+const switchHref = alternatePath(current, otherLang);
+---
+
+<header class="header">
+  <div class="container inner">
+    <a class="logo" href={localizePath('/', lang)}>Lukas Ziegler</a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Main">
+      <div class="nav-box">
+        <button class="nav-close" aria-label="Close menu">✕</button>
+        <div class="nav-title" aria-hidden="true">{t('nav.menu')}</div>
+        <ul class="nav-list">
+          {
+            mainItems.map((item) => (
+              <li>
+                <a
+                  class="nav-link"
+                  href={item.href}
+                  aria-current={current === item.href ? 'page' : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+          <li>
+            <details class="dropdown">
+              <summary class="nav-link">{t('nav.more')} <span class="arrow">▾</span></summary>
+              <div class="dropdown-menu">
+                {
+                  moreItems.map((item) => (
+                    <a
+                      class="nav-link"
+                      href={item.href}
+                      aria-current={current === item.href ? 'page' : undefined}
+                    >
+                      {item.label}
+                    </a>
+                  ))
+                }
+              </div>
+            </details>
+          </li>
+          <li>
+            <a class="nav-link lang-switch" href={switchHref} lang={otherLang} hreflang={otherLang}>
+              {otherLang.toUpperCase()}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <button class="nav-open" aria-label="Open menu" aria-controls="main-nav">☰</button>
+  </div>
+</header>
+
+<style>
+  .inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-block: var(--space-xl);
+    min-height: 5rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    line-height: 1.1;
+    font-weight: var(--weight-black);
+    text-transform: uppercase;
+  }
+
+  .logo:hover {
+    color: var(--color-accent);
+  }
+
+  .main-nav {
+    margin-inline-start: auto;
+  }
+
+  .nav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+
+  .nav-list > li {
+    margin-inline: 24px;
+
+    &:last-child {
+      margin-inline-end: 0;
+    }
+  }
+
+  .nav-link {
+    position: relative;
+    display: inline-block;
+    padding-block-end: 10px;
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: var(--weight-heading);
+    cursor: pointer;
+  }
+
+  .nav-link:hover {
+    color: var(--color-accent);
+  }
+
+  .nav-link[aria-current='page']::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--gradient-brand);
+  }
+
+  .lang-switch {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    padding: 0.5em 0.8em;
+  }
+
+  /* Dropdown */
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown summary {
+    list-style: none;
+  }
+
+  .dropdown summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .arrow {
+    font-size: 0.7em;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-start: calc(100% + var(--space-xs));
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: calc(var(--radius-card) / 2);
+    box-shadow: 0 12px 40px rgb(18 15 62 / 0.12);
+    padding: var(--space-lg);
+    min-width: 11rem;
+    z-index: 20;
+  }
+
+  /* Mobile: fullscreen overlay (Avenco style) */
+  .nav-open,
+  .nav-close,
+  .nav-title {
+    display: none;
+  }
+
+  @media (max-width: 60rem) {
+    .nav-open {
+      display: block;
+      margin-inline-start: auto;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--color-text);
+      cursor: pointer;
+    }
+
+    .main-nav {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: var(--color-bg);
+      opacity: 0;
+      visibility: hidden;
+      overflow: auto;
+      transition: opacity 0.25s ease;
+    }
+
+    .main-nav.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-box {
+      padding: var(--space-xl) var(--space-xl) var(--space-2xl);
+    }
+
+    .nav-close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      inset-block-start: 20px;
+      inset-inline-end: 28px;
+      width: 2.25rem;
+      height: 2.25rem;
+      border: none;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+      color: var(--color-accent);
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .nav-title {
+      display: block;
+      padding-block-end: var(--space-lg);
+      margin-block-end: var(--space-lg);
+      font-size: 2rem;
+      font-weight: var(--weight-black);
+      border-block-end: 1px solid var(--color-border);
+    }
+
+    .nav-list {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-lg);
+    }
+
+    .nav-list > li {
+      margin-inline: 0;
+    }
+
+    .nav-link {
+      font-size: 1.125rem;
+      padding-block-end: 0;
+    }
+
+    .nav-link[aria-current='page']::after {
+      content: none;
+    }
+
+    .nav-link[aria-current='page'] {
+      color: var(--color-accent);
+    }
+
+    .dropdown[open] {
+      display: contents;
+    }
+
+    .dropdown-menu {
+      position: static;
+      border: none;
+      box-shadow: none;
+      background: none;
+      padding: var(--space-sm) 0 0 var(--space-md);
+    }
+  }
+</style>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  document.querySelector('.nav-open')?.addEventListener('click', () => nav?.classList.add('is-open'));
+  document.querySelector('.nav-close')?.addEventListener('click', () => nav?.classList.remove('is-open'));
+
+  // Close the dropdown when clicking outside it (desktop)
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll('details.dropdown[open]').forEach((d) => {
+      if (!d.contains(e.target as Node)) d.removeAttribute('open');
+    });
+  });
+</script>

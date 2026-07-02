@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<BaseLayout
+  title={project.data.title}
+  description={project.data.description}
+  ogImage={project.data.image}
+>
+  <article class="container">
+    <img class="cover" src={project.data.image} alt={project.data.title} loading="eager" />
+    <h1>{project.data.title}</h1>
+    {project.data.subtitle && <p class="subtitle">{project.data.subtitle}</p>}
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  article {
+    padding-block: var(--space-xl) var(--space-2xl);
+  }
+
+  .cover {
+    width: 100%;
+    max-height: 28rem;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+    margin-block-end: var(--space-xl);
+  }
+
+  h1 {
+    margin-block-end: var(--space-xs);
+  }
+
+  .subtitle {
+    color: var(--color-text-muted);
+    margin-block-end: var(--space-lg);
+  }
+</style>
